@@ -2,7 +2,7 @@
   "name": "viftron",
   "private": true,
   "dependencies": {
-    "polymer": "^1.1.0",
+    "polymer": "^1.2.0",
     "normalize.css": "~3.0.3",
     "app-router": "~2.6.1",
     "pushstate-anchor": "^0.3.2",
@@ -11,10 +11,6 @@
     "paper-styles": "PolymerElements/paper-styles",
     "paper-toast": "PolymerElements/paper-toast",
     "paper-spinner": "PolymerElements/paper-spinner",
-    "paper-dialog": "PolymerElements/paper-dialog",
-    "paper-dialog-scrollable": "PolymerElements/paper-dialog-scrollable",
-
-    "paper-toggle-button": "PolymerElements/paper-toggle-button",
 
     "iron-meta": "PolymerElements/iron-meta",
     "iron-ajax": "PolymerElements/iron-ajax",

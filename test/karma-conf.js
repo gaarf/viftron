@@ -4,16 +4,16 @@ module.exports = function(config){
     basePath : '../',
 
     files : [
-      { pattern: 'bower_components/webcomponentsjs/webcomponents-lite.js', watched: false },
+      { pattern: 'dist/bower_components/webcomponentsjs/webcomponents-lite.js', watched: false },
       'test/loader.js',
       'test/unit/**/*.js',
-      { pattern: 'bower_components/**/*', watched: false, included: false, served: true, nocache: true },
+      { pattern: 'dist/bower_components/**/*', watched: false, included: false, served: true, nocache: true },
       { pattern: 'app/elements/**/*.html', watched: true, included: false, served: true },
       { pattern: 'app/elements/**/*.js', watched: true, included: false, served: true }
     ],
 
     proxies: {
-      '/bower_components/': '/base/bower_components/'
+      '/bower_components/': '/base/dist/bower_components/'
     },
 
     autoWatch : true,

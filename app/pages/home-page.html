@@ -1,0 +1,56 @@
+<dom-module id="home-page">
+  <template>
+
+    <x-meta read key="pkgVersion"
+      data-value="{{pkgVersion}}"
+    ></x-meta>
+
+    <h1>
+      VifTron <small>v<span>{{pkgVersion}}</span></small>
+    </h1>
+
+
+    <ul>
+      <template is="dom-repeat" items="[[interestingElements]]">
+        <li>
+          <a is="pushstate-anchor" href$="[[_mkUrl(item)]]">[[item.is]]</a>
+        </li>
+      </template>
+    </ul>
+
+
+  </template>
+</dom-module>
+
+<script>
+
+  Polymer({
+
+    is: 'home-page',
+
+    properties: {
+      pkgVersion: String,
+
+      interestingElements: {
+        type: Array,
+        value: function () {
+          return Polymer.telemetry.registrations.filter(function(it) {
+            return !it.is.match(/^(paper|iron|dom|x)\-/)
+                && !it.is.match(/\-(animation|page)$/)
+                && ['custom-style', 'array-selector'].indexOf(it.is)==-1;
+          });
+        }
+      }
+    },
+
+    _mkUrl: function (it) {
+      return '/demo/'+it.is;
+    }
+
+  });
+
+</script>
+
+
+
+

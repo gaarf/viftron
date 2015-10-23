@@ -1,0 +1,90 @@
+<dom-module id="demo-page">
+    <template>
+
+        <style>
+            :host ::content iframe {
+                /*border: none;*/
+                width: 100%;
+                height: calc(100vh - 150px);
+            }
+        </style>
+
+        <iron-ajax id="ajax"
+            url="[[demoPageUrl]]"
+            on-response="useDemoIframe"
+            on-error="appendTagDirectly"
+        ></iron-ajax>
+
+        <div id="container"></div>
+
+    </template>
+    <script>
+
+      Polymer({
+
+        is: 'demo-page',
+
+        properties: {
+
+          tagArg: String,
+
+          demoPageUrl: {
+            type: String,
+            computed: '_computeDemoPageUrl(tagArg)'
+          },
+
+          routeTitle: {
+            type: String,
+            computed: '_computeRouteTitle(tagArg)'
+          }
+        },
+
+        _computeDemoPageUrl: function (tagArg) {
+          return '/assets/elements/'+tagArg+'/demo/index.html';
+        },
+
+        _computeRouteTitle: function (tagArg) {
+          return '<'+tagArg+'>'; // html escaped
+        },
+
+        useDemoIframe: function () {
+            var el = document.createElement('iframe');
+            el.src = this.get('demoPageUrl');
+            this.$.container.appendChild(el);
+            console.log('iframed', el.src);
+        },
+
+        appendTagDirectly: function () {
+            var el = document.createElement(this.get('tagArg'));
+            this.$.container.appendChild(el);
+            console.log('appended', el);
+        },
+
+        attached: function () {
+
+          var tagArg = this.get('tagArg'),
+              matches = Polymer.telemetry.registrations.filter(function(it) {
+                return it.is === tagArg;
+              });
+
+          if(matches.length) {
+            console.log(matches[0]);
+            this.$.ajax.generateRequest();
+          }
+          else {
+            alert('invalid tag "'+tagArg+'"');
+            this.router.go('/');
+          }
+
+        }
+
+      });
+
+    </script>
+
+</dom-module>
+
+
+
+
+

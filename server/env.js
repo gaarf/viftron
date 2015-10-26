@@ -1,7 +1,7 @@
 var envar = require('envar');
 
 envar.defaults({
-  port: 8080
+  port: 9090
 });
 
 module.exports = envar;

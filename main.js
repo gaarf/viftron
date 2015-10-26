@@ -1,7 +1,7 @@
 var electron = require('app');  // Module to control application life.
 var BrowserWindow = require('browser-window');  // Module to create native browser window.
 
-// Report crashes to our server.
+
 // require('crash-reporter').start();
 
 
@@ -31,7 +31,7 @@ electron.on('ready', function() {
       mainWindow.loadUrl('http://0.0.0.0:'+port);
 
       // Open the DevTools.
-      // mainWindow.openDevTools();
+      mainWindow.openDevTools();
 
       // Emitted when the window is closed.
       mainWindow.on('closed', function() {

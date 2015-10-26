@@ -7,23 +7,24 @@ _an OnVif client built with Electron_
 
 Global dependencies:
 
-* `npm install -g bower gulp`
+* `npm install -g bower gulp electron-packager`
 
 Local dependencies:
 
 * `npm install && bower install`
 
-### Running the server
-
-* `npm start`
-
-### Building app files into dist/
+### Running in electron-prebuilt
 
 * `gulp build`
-or
-* `gulp watch` (autobuild)
+* `npm start`
 
-### All together now
+### Developement in a browser
 
 * `gulp develop` (autobuild, autorestart)
 
+### Packaging the app
+
+* `gulp distribute`
+* `electron-packager ./ VifTron --platform=darwin --arch=all --prune --version=0.34.1 --out=./target --ignore="^/app" --ignore="^/test" --ignore="^/this\.sublime" --ignore="^/target" --overwrite --asar --app-version=0.0.1`
+
+will generate `target/VifTron-darwin-x64/VifTron.app`

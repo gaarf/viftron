@@ -16,9 +16,9 @@
     "url": "https://github.com/gaarf/viftron"
   },
   "devDependencies": {
-    "electron-prebuilt": "^0.34.1",
     "bower": "^1.3.10",
     "del": "^2.0.2",
+    "electron-prebuilt": "^0.34.1",
     "gulp": "^3.8.9",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-concat": "^2.3.4",
@@ -38,8 +38,8 @@
     "gulp-zip": "^3.0.2",
     "jasmine-core": "^2.1.2",
     "karma": "^0.13.0",
-    "karma-jasmine": "^0.3.0",
     "karma-chrome-launcher": "^0.2.1",
+    "karma-jasmine": "^0.3.0",
     "merge-stream": "^1.0.0",
     "mkdirp": "^0.5.1"
   },

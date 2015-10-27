@@ -22,7 +22,7 @@ electron.on('window-all-closed', function() {
 // initialization and is ready to create browser windows.
 electron.on('ready', function() {
 
-  require('./server.js').start(function (port) {
+  require('./server').start(function (port) {
 
       // Create the browser window.
       mainWindow = new BrowserWindow({width: 800, height: 600});

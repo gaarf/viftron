@@ -1,9 +1,9 @@
-var express = require('./server/express.js'),
+var express = require('./express.js'),
     colors = require('colors/safe'),
     http = require('http'),
     portfinder = require('portfinder');
 
-portfinder.basePort = require('./server/env.js')('port');
+portfinder.basePort = require('./env.js')('port');
 
 
 function start (cb) {

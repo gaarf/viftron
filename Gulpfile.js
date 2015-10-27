@@ -285,7 +285,7 @@ gulp.task('develop', ['watch'], function() {
   });
 
   function start () {
-    var child = spawn( "node", ["server.js"], { cwd: __dirname } );
+    var child = spawn( "node", ["server/index.js"], { cwd: __dirname } );
     child.stdout.setEncoding('utf8');
     child.stdout.on('data', function (data) {
       data.split('\n').forEach(function (line) {

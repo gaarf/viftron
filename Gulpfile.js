@@ -247,6 +247,32 @@ gulp.task('distribute', ['build', 'rev:replace']);
 
 gulp.task('default', ['lint', 'build']);
 
+/*
+  electron-packager
+ */
+gulp.task('packager', function (done) {
+
+  require('electron-packager')({
+    'dir': __dirname,
+    'platform': 'darwin',
+    'arch': 'all',
+    'prune': true,
+    'version': pkg.devDependencies['electron-prebuilt']
+    'out': __dirname + '/target',
+    'ignore': /^\/(app|test|this\.sublime|target)/,
+    'overwrite': true,
+    'asar': true,
+
+    'name': pkg.name,
+    'appVersion': pkg.version,
+    'buildVersion': pkg.version
+
+  }, function(err, output) {
+    plug.util.log('packaged', plug.util.colors.yellow(output));
+    done();
+  });
+
+});
 
 /*
   watch

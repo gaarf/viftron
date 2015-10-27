@@ -257,18 +257,23 @@ gulp.task('packager', function (done) {
     'platform': 'darwin',
     'arch': 'all',
     'prune': true,
-    'version': pkg.devDependencies['electron-prebuilt']
+    'version': require('./node_modules/electron-prebuilt/package.json').version,
     'out': __dirname + '/target',
     'ignore': /^\/(app|test|this\.sublime|target)/,
     'overwrite': true,
     'asar': true,
 
-    'name': pkg.name,
-    'appVersion': pkg.version,
-    'buildVersion': pkg.version
+    'name': pkg.productName || pkg.name,
+    'app-bundle-id': 'info.gaarf.electron.'+pkg.name,
+    'app-version': pkg.version
 
   }, function(err, output) {
-    plug.util.log('packaged', plug.util.colors.yellow(output));
+    if(err) {
+      plug.util.log(plug.util.colors.red(err));      
+    }
+    else {
+      plug.util.log('packaged', plug.util.colors.yellow(output));      
+    }
     done();
   });
 

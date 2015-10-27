@@ -1,5 +1,6 @@
 {
-  "name": "VifTron",
+  "name": "viftron",
+  "productName": "VifTron",
   "version": "0.0.1",
   "description": "an electron-based onvif client",
   "license": "UNLICENSED",
@@ -15,7 +16,7 @@
     "test": "node ./node_modules/karma/bin/karma start test/karma-conf.js",
     "test-single-run": "node ./node_modules/karma/bin/karma start test/karma-conf.js --no-auto-watch --single-run"
   },
-  "main": "main.js",
+  "main": "electron.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/gaarf/viftron"

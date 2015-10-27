@@ -147,7 +147,7 @@ gulp.task('hint', ['lint']);
   clean dist
  */
 gulp.task('clean', function(cb) {
-  del(['./dist/assets', './dist/index.html', './dist/zips'], cb);
+  del(['./dist/assets', './dist/index.html', './dist/zips', './target'], cb);
 });
 
 
